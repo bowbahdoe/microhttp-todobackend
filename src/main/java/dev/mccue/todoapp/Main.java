@@ -68,6 +68,7 @@ public final class Main {
                 })
         );
 
+        System.out.println("Starting server");
         eventLoop.start();
         eventLoop.join();
     }
