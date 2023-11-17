@@ -4,6 +4,7 @@ import dev.mccue.json.Json;
 import dev.mccue.json.JsonDecoder;
 import dev.mccue.microhttp.handler.RouteHandler;
 import dev.mccue.microhttp.json.JsonResponse;
+import dev.mccue.todoapp.Utils;
 import org.microhttp.Request;
 import org.sqlite.SQLiteDataSource;
 
@@ -93,13 +94,7 @@ public final class PatchTodoHandler extends RouteHandler {
                 stmt.setInt(1, Integer.parseInt(routeMatch.group("id")));
                 var rs = stmt.executeQuery();
                 if (rs.next()) {
-                    return new JsonResponse(
-                            Json.objectBuilder()
-                                    .put("title", rs.getString("title"))
-                                    .put("completed", rs.getBoolean("completed"))
-                                    .put("url", "https://" + request.header("host") + "/" + rs.getInt("id"))
-                                    .put("order", rs.getInt("order"))
-                    );
+                    return new JsonResponse(Utils.todoJson(request, rs));
                 }
                 else {
                     return new JsonResponse(Json.ofNull());
