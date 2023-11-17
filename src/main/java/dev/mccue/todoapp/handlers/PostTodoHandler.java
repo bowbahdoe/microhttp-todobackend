@@ -24,12 +24,8 @@ public final class PostTodoHandler extends RouteHandler {
     record Todo(String title, Optional<Integer> order) {
         static Todo fromJson(Json json) {
             return new Todo(
-                    JsonDecoder.field(
-                        json, "title", JsonDecoder::string
-                    ),
-                    JsonDecoder.optionalField(
-                            json, "order", JsonDecoder::int_
-                    )
+                    JsonDecoder.field(json, "title", JsonDecoder::string),
+                    JsonDecoder.optionalField(json, "order", JsonDecoder::int_)
             );
         }
     }
