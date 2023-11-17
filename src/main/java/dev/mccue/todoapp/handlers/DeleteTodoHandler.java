@@ -11,7 +11,7 @@ import org.sqlite.SQLiteDataSource;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class DeleteTodoHandler extends RouteHandler {
+public final class DeleteTodoHandler extends RouteHandler {
     private final SQLiteDataSource db;
 
     public DeleteTodoHandler(SQLiteDataSource db) {

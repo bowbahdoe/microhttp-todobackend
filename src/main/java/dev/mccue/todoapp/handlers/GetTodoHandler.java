@@ -11,7 +11,7 @@ import org.sqlite.SQLiteDataSource;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class GetTodoHandler extends RouteHandler {
+public final class GetTodoHandler extends RouteHandler {
     private final SQLiteDataSource db;
 
     public GetTodoHandler(SQLiteDataSource db) {

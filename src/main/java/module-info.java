@@ -7,4 +7,6 @@ module dev.mccue.todoapp {
     requires dev.mccue.urlparameters;
     requires org.xerial.sqlitejdbc;
     requires org.slf4j.simple;
+
+    exports dev.mccue.todoapp;
 }

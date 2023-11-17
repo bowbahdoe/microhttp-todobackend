@@ -11,10 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class RootHandler extends DelegatingHandler {
-    /**
-     * @param handlers   The list of handlers, in the order they should be tried.
-     * @param notHandled The {@link IntoResponse} to use if no handler matches the request.
-     */
     public RootHandler(List<Handler> handlers, IntoResponse notHandled) {
         super(handlers, notHandled);
     }
