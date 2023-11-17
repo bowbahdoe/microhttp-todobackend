@@ -1,11 +1,9 @@
 package dev.mccue.todoapp.handlers;
 
 import dev.mccue.json.Json;
-import dev.mccue.microhttp.handler.IntoResponse;
 import dev.mccue.microhttp.handler.RouteHandler;
 import dev.mccue.microhttp.json.JsonResponse;
 import dev.mccue.todoapp.Utils;
-import org.jspecify.annotations.Nullable;
 import org.microhttp.Request;
 import org.sqlite.SQLiteDataSource;
 
@@ -21,7 +19,7 @@ public final class GetTodoHandler extends RouteHandler {
     }
 
     @Override
-    protected @Nullable IntoResponse handleRoute(Matcher routeMatch, Request request) throws Exception {
+    protected JsonResponse handleRoute(Matcher routeMatch, Request request) throws Exception {
         try (var conn = db.getConnection();
              var stmt = conn.prepareStatement("""
                      SELECT id, title, completed, "order"

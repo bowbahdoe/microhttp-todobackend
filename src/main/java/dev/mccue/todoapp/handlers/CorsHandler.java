@@ -17,7 +17,7 @@ public final class CorsHandler extends RouteHandler {
     }
 
     @Override
-    protected @Nullable IntoResponse handleRoute(Matcher routeMatch, Request request) throws Exception {
+    protected IntoResponse handleRoute(Matcher routeMatch, Request request) {
         return () -> new Response(
                 200, "OK", List.of(
                 new Header("access-control-allow-headers", "accept, content-type"),

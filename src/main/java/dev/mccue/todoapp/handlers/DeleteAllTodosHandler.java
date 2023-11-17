@@ -21,7 +21,7 @@ public final class DeleteAllTodosHandler extends RouteHandler {
     }
 
     @Override
-    protected @Nullable IntoResponse handleRoute(Matcher routeMatch, Request request) throws Exception {
+    protected JsonResponse handleRoute(Matcher routeMatch, Request request) throws Exception {
         try (var conn = db.getConnection();
              var stmt = conn.prepareStatement("""
                      DELETE FROM todo
