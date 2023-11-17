@@ -55,6 +55,7 @@ public final class Main {
 
         var eventLoop = new EventLoop(
                 OptionsBuilder.newBuilder()
+                        .withHost("0.0.0.0")
                         .withPort(port)
                         .build(),
                 NoopLogger.instance(),
@@ -68,7 +69,7 @@ public final class Main {
                 })
         );
 
-        System.out.println("Starting server");
+        System.out.println("Starting server on port " + port);
         eventLoop.start();
         eventLoop.join();
     }
