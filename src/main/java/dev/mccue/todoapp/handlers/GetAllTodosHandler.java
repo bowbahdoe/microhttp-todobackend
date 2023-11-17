@@ -3,7 +3,7 @@ package dev.mccue.todoapp.handlers;
 import dev.mccue.json.Json;
 import dev.mccue.microhttp.handler.RouteHandler;
 import dev.mccue.microhttp.json.JsonResponse;
-import dev.mccue.todoapp.Utils;
+import dev.mccue.todoapp.TodoUrl;
 import org.microhttp.Request;
 import org.sqlite.SQLiteDataSource;
 
@@ -28,7 +28,13 @@ public final class GetAllTodosHandler extends RouteHandler {
             var rs = stmt.executeQuery();
             var arrayBuilder = Json.arrayBuilder();
             while (rs.next()) {
-                arrayBuilder.add(Utils.todoJson(request, rs));
+                arrayBuilder.add(
+                        Json.objectBuilder()
+                                .put("title", rs.getString("title"))
+                                .put("completed", rs.getBoolean("completed"))
+                                .put("url", new TodoUrl(request, rs.getInt("id")))
+                                .put("order", rs.getInt("order"))
+                );
             }
 
             return new JsonResponse(arrayBuilder);

@@ -2,10 +2,9 @@ package dev.mccue.todoapp.handlers;
 
 import dev.mccue.json.Json;
 import dev.mccue.json.JsonDecoder;
-import dev.mccue.json.JsonEncodable;
 import dev.mccue.microhttp.handler.RouteHandler;
 import dev.mccue.microhttp.json.JsonResponse;
-import dev.mccue.todoapp.Utils;
+import dev.mccue.todoapp.TodoUrl;
 import org.microhttp.Request;
 import org.sqlite.SQLiteDataSource;
 
@@ -46,7 +45,13 @@ public final class PostTodoHandler extends RouteHandler {
             stmt.setInt(2, todo.order.orElse(0));
             var rs = stmt.executeQuery();
             rs.next();
-            return new JsonResponse(Utils.todoJson(request, rs));
+            return new JsonResponse(
+                    Json.objectBuilder()
+                            .put("title", rs.getString("title"))
+                            .put("completed", rs.getBoolean("completed"))
+                            .put("url", new TodoUrl(request, rs.getInt("id")))
+                            .put("order", rs.getInt("order"))
+            );
         }
     }
 }

@@ -2,7 +2,6 @@ package dev.mccue.todoapp.handlers;
 
 import dev.mccue.microhttp.handler.IntoResponse;
 import dev.mccue.microhttp.handler.RouteHandler;
-import org.jspecify.annotations.Nullable;
 import org.microhttp.Header;
 import org.microhttp.Request;
 import org.microhttp.Response;

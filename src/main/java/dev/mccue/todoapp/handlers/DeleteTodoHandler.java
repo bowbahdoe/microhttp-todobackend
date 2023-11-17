@@ -1,10 +1,8 @@
 package dev.mccue.todoapp.handlers;
 
 import dev.mccue.json.Json;
-import dev.mccue.microhttp.handler.IntoResponse;
 import dev.mccue.microhttp.handler.RouteHandler;
 import dev.mccue.microhttp.json.JsonResponse;
-import org.jspecify.annotations.Nullable;
 import org.microhttp.Request;
 import org.sqlite.SQLiteDataSource;
 
