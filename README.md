@@ -32,3 +32,5 @@ is like without annotations, databind, or other such magic.
 
 With that context, feedback is welcome. Make an issue with what you think should be different or
 you think is suboptimal.
+
+![Passing Tests](img.png)
