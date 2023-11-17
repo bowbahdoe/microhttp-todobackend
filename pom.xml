@@ -26,11 +26,6 @@
             <version>0.0.1</version>
         </dependency>
         <dependency>
-            <groupId>dev.mccue</groupId>
-            <artifactId>urlparameters</artifactId>
-            <version>0.0.1</version>
-        </dependency>
-        <dependency>
             <groupId>org.xerial</groupId>
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.44.0.0</version>
