@@ -13,4 +13,4 @@ FROM ubuntu:22.04
 ENV PORT=80
 COPY --from=build target/maven-jlink/classifiers/image /jre
 
-ENTRYPOINT ["./jre/bin/server"]
+CMD ["./jre/bin/server"]
