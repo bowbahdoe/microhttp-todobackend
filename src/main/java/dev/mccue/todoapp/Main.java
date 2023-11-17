@@ -58,14 +58,14 @@ public final class Main {
                         .withPort(port)
                         .build(),
                 NoopLogger.instance(),
-                ((request, callback) -> Thread.startVirtualThread(() -> {
+                (request, callback) -> Thread.startVirtualThread(() -> {
                     try {
                         callback.accept(rootHandler.handle(request).intoResponse());
                     } catch (Exception e) {
                         e.printStackTrace();
                         callback.accept(genericError.intoResponse());
                     }
-                }))
+                })
         );
 
         eventLoop.start();
