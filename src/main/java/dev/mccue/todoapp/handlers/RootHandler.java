@@ -20,10 +20,14 @@ public final class RootHandler extends DelegatingHandler {
         IntoResponse response;
         if (request.method().equalsIgnoreCase("options")) {
             response = () -> new Response(
-                    200, "OK", List.of(
-                    new Header("access-control-allow-headers", "*"),
-                    new Header("access-control-allow-methods", "*")
-            ), new byte[] {});
+                    200,
+                    "OK",
+                    List.of(
+                        new Header("access-control-allow-headers", "*"),
+                        new Header("access-control-allow-methods", "*")
+                    ),
+                    new byte[] {}
+            );
         }
         else {
             response = super.handle(request);
