@@ -17,7 +17,18 @@ public final class RootHandler extends DelegatingHandler {
 
     @Override
     public IntoResponse handle(Request request) throws Exception {
-        var response = super.handle(request);
+        IntoResponse response;
+        if (request.method().equalsIgnoreCase("options")) {
+            response = () -> new Response(
+                    200, "OK", List.of(
+                    new Header("access-control-allow-headers", "accept, content-type"),
+                    new Header("access-control-allow-methods", "GET,HEAD,POST,DELETE,OPTIONS,PUT,PATCH")
+            ), new byte[] {});
+        }
+        else {
+            response = super.handle(request);
+        }
+
         return () -> {
             var actualResponse = response.intoResponse();
             var headers = new ArrayList<>(actualResponse.headers());

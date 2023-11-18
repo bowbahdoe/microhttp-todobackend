@@ -37,7 +37,6 @@ public final class Main {
         var db = db();
 
         List<Handler> handlers = List.of(
-                new CorsHandler(),
                 new GetAllTodosHandler(db),
                 new PostTodoHandler(db),
                 new DeleteAllTodosHandler(db),
