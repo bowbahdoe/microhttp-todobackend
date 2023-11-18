@@ -21,8 +21,8 @@ public final class RootHandler extends DelegatingHandler {
         if (request.method().equalsIgnoreCase("options")) {
             response = () -> new Response(
                     200, "OK", List.of(
-                    new Header("access-control-allow-headers", "accept, content-type"),
-                    new Header("access-control-allow-methods", "GET,HEAD,POST,DELETE,OPTIONS,PUT,PATCH")
+                    new Header("access-control-allow-headers", "*"),
+                    new Header("access-control-allow-methods", "*")
             ), new byte[] {});
         }
         else {
